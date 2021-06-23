@@ -1,0 +1,1 @@
+//add tsconfig to a file https://github.com/gopinav/React-TypeScript-Webpack-Starter/blob/master/tsconfig.json
