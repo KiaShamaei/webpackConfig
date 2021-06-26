@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     
 	 entry: path.resolve(__dirname, '..', './src/index.tsx'),
-
+	 experiments: {
+		  asset: true
+	},
 	
     output: { path: path.join(__dirname, "build"), filename: "index.bundle.js" },
     mode: process.env.NODE_ENV || "development",
@@ -29,13 +31,17 @@ module.exports = {
                 use: ["style-loader", "css-loader"],
             },
             {
-                test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+                test: /\.(jpg|jpeg|png|gif|mp3|svg|woff(2)?|ttf|eot|)$/,
                 use: ["file-loader"],
             },
 			{
 				test: /\.html$/,
 				loader: 'html-loader'
-			  }
+			},
+			// {
+			// 	test : /\.(?:ico|gif|png|jpg|jpeg)$/i,
+			// 	type:'assets/resource'
+			// }
         ],
     },
     plugins: [

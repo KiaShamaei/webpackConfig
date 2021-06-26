@@ -1,10 +1,21 @@
 import React from 'react'
+import "./styles.css"
+import IMAGE from './g.png';
+import LOGO from './logo.svg'
 
 const App = () => {
     return (
-        <div>
+		<>
+		<img src={IMAGE} alt="reactGoogle" width="300px" height="200px" />
+		<img src={LOGO} alt="reactGoogle" width="300px" height="200px" />
+
+
+
+        <h3>
             this is from tsx file 
-        </div>
+        </h3>
+
+		</>
     )
 }
 
