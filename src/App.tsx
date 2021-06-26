@@ -12,7 +12,7 @@ const App = () => {
 
 
         <h3>
-            this is from tsx file 
+            this is from tsx file {process.env.NODE_ENV} - {process.env.name}
         </h3>
 
 		</>
