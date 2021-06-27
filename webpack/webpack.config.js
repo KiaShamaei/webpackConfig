@@ -1,46 +1,10 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {merge} = require('webpack-merge')
+const commonConfig = require('./webpack.common.js')
 
-module.exports = {
-    
-	 entry: path.resolve(__dirname, '..', './src/index.tsx'),
+module.exports = (envVars)=>{
+    const {env} = envVars
+    const envConfig = require(`./webpack.${env}.js`)
+    const config = merge(commonConfig,envConfig)
+    return config
 
-	
-    output: { path: path.join(__dirname, "build"), filename: "index.bundle.js" },
-    mode: process.env.NODE_ENV || "development",
-    resolve: {
-        extensions: [".tsx", ".ts", ".js"],
-    },
-    devServer: { contentBase: path.join(__dirname, "src") },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: ["babel-loader"],
-            },
-            {
-                test: /\.(ts|tsx)$/,
-                exclude: /node_modules/,
-                use: ["ts-loader"],
-            },
-            {
-                test: /\.(css|scss)$/,
-                use: ["style-loader", "css-loader"],
-            },
-            {
-                test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-                use: ["file-loader"],
-            },
-			{
-				test: /\.html$/,
-				loader: 'html-loader'
-			  }
-        ],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, "../src", "index.html"),
-        }),
-    ],
-};
+}
