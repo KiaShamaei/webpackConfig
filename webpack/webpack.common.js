@@ -31,25 +31,17 @@ module.exports = {
                 use: ["style-loader", "css-loader"],
             },
             {
-<<<<<<< HEAD
-                test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-=======
                 test: /\.(jpg|jpeg|png|gif|mp3|svg|woff(2)?|ttf|eot|)$/,
->>>>>>> 053506eafeea4dc03a4c3ae345107981605db1ac
                 use: ["file-loader"],
             },
 			{
 				test: /\.html$/,
 				loader: 'html-loader'
-<<<<<<< HEAD
-			  }
-=======
 			},
 			// {
 			// 	test : /\.(?:ico|gif|png|jpg|jpeg)$/i,
 			// 	type:'assets/resource'
 			// }
->>>>>>> 053506eafeea4dc03a4c3ae345107981605db1ac
         ],
     },
     plugins: [
